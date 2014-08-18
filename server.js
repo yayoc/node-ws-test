@@ -14,21 +14,32 @@ console.log("http server listening on %d", port)
 var wss = new WebSocketServer({server: server})
 console.log("websocket server created")
 
+// 接続の保持
+var connections = [];
+
 wss.on("connection", function(ws) {
+  connections.push(ws); 
 //  var id = setInterval(function() {
 //    ws.send(JSON.stringify(new Date()), function() {  })
 //  }, 1000)
   console.log("websocket connection open")
   
   ws.on("message", function(data) {
-    server.clients.forEach(function(client) {
-      client.send(data);
-    });
+    console.log('recived: %s', data); 
+    broadcast(data);
   });
-
-
+  
   ws.on("close", function() {
     console.log("websocket connection close")
+    connections = connections.filter(function(conn, i) {
+      return (conn == ws) ? false : true;
+    });
     //clearInterval(id)
   })
 })
+
+function broadcast(message) {
+  connections.forEach(function(con, i) {
+    con.send(message);
+  });
+}
