@@ -19,14 +19,15 @@ var connections = [];
 
 wss.on("connection", function(ws) {
   connections.push(ws); 
-//  var id = setInterval(function() {
-//    ws.send(JSON.stringify(new Date()), function() {  })
-//  }, 1000)
   console.log("websocket connection open")
   
-  ws.on("message", function(data) {
-    console.log('recived: %s', data); 
-    broadcast(data);
+  ws.on("message", function(message) {
+    console.log('recived: %s', message);
+    now = new Date();
+    var data = [];
+    var datetime = now.getFullYear() + "/" + now.getMonth() + "/" + now.getDay() + " " + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds();
+    data = {"message": message, "date": datetime};
+    broadcast(JSON.stringify(data));
   });
   
   ws.on("close", function() {
@@ -34,7 +35,6 @@ wss.on("connection", function(ws) {
     connections = connections.filter(function(conn, i) {
       return (conn == ws) ? false : true;
     });
-    //clearInterval(id)
   })
 })
 

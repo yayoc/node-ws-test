@@ -1,38 +1,49 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <style>
       body {
         font-family: "Helvetica Neue", helvetica, arial;
         padding: 15px;
       }
-
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      ul li {
-        line-height: 1.4;
+      h1 {
+        color: #f0ad4e;
       }
     </style>
 
 
   </head>
   <body>
-    <h1>Websocket Chat</h1>
-    <ul id='chat'></ul>
-    <input type="text" value="" id="text">
-    <input type="submit" value="submit" id="submit">
+    <div class="container">
+      <header>
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Websocket Chat</h1>
+            <div class="form-group">
+              <input type="text" value="" id="text" class="form-control input-lg" placeholder="Enter text">
+              <span class="help-block">You can send text to somebody with using web socket.</span>
+            </div>
+            <div class="form-group">
+              <button id="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id='chat'></div>
+    </div>
   </body>
   <script>
     var host = location.origin.replace(/^http/, 'ws')
     var ws = new WebSocket(host);
     ws.onmessage = function (event) {
-      var li = document.createElement('li');
-      li.innerHTML = event.data;
-      document.querySelector('#chat').appendChild(li);
+      var blockquote = document.createElement('blockquote');
+      var p = document.createElement('p');
+      var footer = document.createElement('footer');
+      p.innerHTML = JSON.parse(event.data).message;
+      footer.innerHTML = JSON.parse(event.data).date;
+      document.querySelector('#chat').appendChild(blockquote).appendChild(p).appendChild(footer);
     };
     $('#submit').on('click', function(e) {
       message = $('#text').val();
