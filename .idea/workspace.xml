@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e1310d5-5ce0-465f-a18a-a6f6e01e00f6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="node-ws-test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +38,8 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4465494" vertical-offset="0" max-vertical-offset="915">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.5074425" vertical-offset="0" max-vertical-offset="915">
+              <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -260,12 +259,12 @@
       <created>1408375859281</created>
       <updated>1408375859281</updated>
       <workItem from="1408375859245" duration="154000" />
-      <workItem from="1408376026544" duration="3138000" />
+      <workItem from="1408376026544" duration="3796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3292000" />
+    <option name="totallyTimeSpent" value="3950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="31" width="1400" height="860" extended-state="0" />
@@ -328,8 +327,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4465494" vertical-offset="0" max-vertical-offset="915">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.5074425" vertical-offset="0" max-vertical-offset="915">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
           <folding />
         </state>
       </provider>
